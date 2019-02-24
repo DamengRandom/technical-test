@@ -1,0 +1,1 @@
+export { brandReducer } from './brands';

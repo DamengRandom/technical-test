@@ -1,0 +1,23 @@
+.toggled {
+  background-color: #06314a;
+  color: #fff;
+}
+
+.toggled:hover,
+.toggled:focus,
+.toggled:active {
+  background-color: #06314a;
+  color: #fff;
+}
+
+.untoggled {
+  background-color: #f3f5f6;
+  color: #5c7789;
+}
+
+.untoggled:hover,
+.untoggled:focus,
+.untoggled:active {
+  background-color: #f3f5f6;
+  color: #5c7789;
+}
