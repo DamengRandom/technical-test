@@ -1,5 +1,5 @@
 import React from 'React';
-import Enzyme, { mount, shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import EnzymeAdapter from 'enzyme-adapter-react-16';
 import { Provider } from 'react-redux';
 import Dashboard from './index';
@@ -58,8 +58,8 @@ describe('<Dashboard />', () => {
     <Provider store={store}>
       <Dashboard />
     </Provider>);
+
   it('render Dashboard component', () => {
-    
     expect(wrapper.length).toEqual(1);
   });
 
@@ -77,4 +77,12 @@ describe('<Dashboard />', () => {
       .location)
       .toEqual("Australia");
   });
+
+  it("should render handleFilterChange function", () => {
+    wrapper.find('#selectFilter')
+      .simulate('change', { target: { value: 'England' }});
+    wrapper.update();
+    expect(wrapper.find(BrandList).props().brands.length)
+      .toEqual(1);
+  }); 
 });

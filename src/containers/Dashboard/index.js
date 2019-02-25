@@ -36,37 +36,38 @@ class Dashboard extends React.Component {
     this.props.readBrands();
   }
 
-  render() {
-    // Sorry guys, this is very bad practice, (From line 39 to line 69)
-    // because I don't have enough time to implement the entire code logic,
-    // I Just need to demonstrate I am capable of doing filter the list without refresh page functionality
-    // Trust me, if I got enough time, I never hardcode like this 
-    const handleFilterChange = (e) => {
-      const filter = e.target.value;
-      const brands = this.props.brands;
-      switch(filter) {
-        case 'Australia':
-          return this.setState({
-            currentBrands: brands.filter(brand => brand.location === "Australia"),
-          });
-        case 'England':
-          return this.setState({
-            currentBrands: brands.filter(brand => brand.location === "England"),
-          });
-        case 'USA':
-          return this.setState({
-            currentBrands: brands.filter(brand => brand.location === "USA"),
-          });
-        case 'UK':
-          return this.setState({
-            currentBrands: brands.filter(brand => brand.location === "UK"),
-          });
-        default:
-          return this.setState({
-            currentBrands: brands,
-          });
-      }
+  // Sorry guys, this is very bad practice, (From line 39 to line 69)
+  // because I don't have enough time to implement the entire code logic,
+  // I Just need to demonstrate I am capable of doing filter the list without refresh page functionality
+  // Trust me, if I got enough time, I never hardcode like this 
+  handleFilterChange = (e) => {
+    const filter = e.target.value;
+    const brands = this.props.brands;
+    switch(filter) {
+      case 'Australia':
+        return this.setState({
+          currentBrands: brands.filter(brand => brand.location === "Australia"),
+        });
+      case 'England':
+        return this.setState({
+          currentBrands: brands.filter(brand => brand.location === "England"),
+        });
+      case 'USA':
+        return this.setState({
+          currentBrands: brands.filter(brand => brand.location === "USA"),
+        });
+      case 'UK':
+        return this.setState({
+          currentBrands: brands.filter(brand => brand.location === "UK"),
+        });
+      default:
+        return this.setState({
+          currentBrands: brands,
+        });
     }
+  }
+
+  render() {
     return (
       <div style={{ backgroundColor: "#f2f4f5" }}>
         <Header />
@@ -82,7 +83,7 @@ class Dashboard extends React.Component {
               // I Just need to demonstrate I am capable of doing filter the list without refresh page functionality
               <form style={{ textAlign: 'center', margin: '32px 0' }}>
                 <span>Test Filter (demo functionality): </span>
-                <select onChange={(e) => handleFilterChange(e)}>
+                <select id="selectFilter" onChange={(e) => this.handleFilterChange(e)}>
                   <option value="Location">Location</option>  
                   <option value="Australia">Australia</option>
                   <option value="England">England</option>

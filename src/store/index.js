@@ -5,10 +5,11 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { brandReducer } from '../reducers';
+import { brandReducer, filterReducer } from '../reducers';
 
 const reducers = combineReducers({
-  brand: brandReducer
+  brand: brandReducer,
+  filtered: filterReducer
 });
 
 export default createStore(
